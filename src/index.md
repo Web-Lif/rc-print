@@ -31,7 +31,11 @@ export default () => {
             <Print
                 print={print}
             >
-                2131332
+               <div>你好</div>
+               <div>你好</div>
+               <div>你好</div>
+               <div>你好</div>
+               <div>你好</div>
             </Print>
         </>
     );

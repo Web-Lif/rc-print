@@ -21,8 +21,13 @@ const Print: FC<PrintProps> = ({
     useEffect(() => {
         print.current = {
             print: async () => {
-                if (divRef.current) {
+                if (divRef.current ) {
+
+                    // see https://github.com/niklasvh/html2canvas/issues/390
+
                     const canvas = await html2canvas(divRef.current)
+                    const ctx = canvas.getContext('2d')!
+                    ctx.imageSmoothingEnabled = false;
                     const base64Url = canvas.toDataURL("image/png")
                     setSrcDoc(`
                         <!DOCTYPE html>
