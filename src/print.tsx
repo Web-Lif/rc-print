@@ -6,8 +6,10 @@ iframeElement.style.display = 'none';
 document.body.appendChild(iframeElement);
 
 function setSrcDoc(html: string) {
-    iframeElement.setAttribute('srcdoc', '');
     iframeElement.setAttribute('srcdoc', html);
+    setTimeout(() => {
+        iframeElement.setAttribute('srcdoc', '');
+    }, 100);
 }
 
 export const printSnapshotDom = async (element: HTMLElement) => {
