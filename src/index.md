@@ -7,7 +7,7 @@ group:
     title: 打印
 ---
 
-## Table 表格
+## Print 打印
 
 ```tsx
 /**
@@ -18,19 +18,17 @@ import React, { useState, useRef } from 'react';
 import { Print } from '@weblif/rc-print';
 
 export default () => {
-    const print = useRef()
+    const print = useRef();
     return (
         <>
             <button
                 onClick={() => {
-                    print.current.print()
+                    print.current.print();
                 }}
             >
                 点击打印
             </button>
-            <Print
-                print={print}
-            >
+            <Print print={print}>
                 <table border="1">
                     <tr>
                         <td>row 1, cell 1</td>
@@ -47,15 +45,38 @@ export default () => {
 };
 ```
 
-<br />
+```tsx
+/**
+ * title: 打印
+ * desc: 打印容器里面的内容
+ */
+import React, { useState, useRef } from 'react';
+import { Print } from '@weblif/rc-print';
 
-| 属性             | 说明                   | 类型                  | 默认值 |
-| ---------------- | ---------------------- | --------------------- | ------ |
-| width            | 表格的宽度             | `number`              | -      |
-| height           | 表格的高度信息         | `number`              | -      |
-| rows             | 表格的数据             | `T[]`                 | -      |
-| columns          | 列信息                 | `Column<T>[]`         | -      |
-| rowSelection     | 选择框的配置项         | `RowSelectType`       | -      |
-| onRowClick       | 表格单击行触发的事件   | `(row: T) => void`    | -      |
-| onRowDoubleClick | 表格双击行触发的事件   | `row: T) => void`     | -      |
-| onChange         | 改变表格数据触发的事件 | `(rows: T[]) => void` | -      |
+export default () => {
+    const printx = useRef();
+    return (
+        <>
+            <button
+                onClick={() => {
+                    printx.current.print();
+                }}
+            >
+                点击打印
+            </button>
+            <Print print={printx}>
+                <table border="1">
+                    <tr>
+                        <td>row 1, cell 1</td>
+                        <td>row 1, cell 2</td>
+                    </tr>
+                    <tr>
+                        <td>row 2, cell 1</td>
+                        <td>row 2, cell 2</td>
+                    </tr>
+                </table>
+            </Print>
+        </>
+    );
+};
+```

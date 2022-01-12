@@ -1,1 +1,1 @@
-export {default as Print} from './print'
+export { default as Print, printSnapshotDom } from './print';
